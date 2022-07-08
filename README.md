@@ -46,6 +46,12 @@ npm run dev
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+- @Transactional(readOnly=true) 읽기전용 트랜잭션 처리
+- Spring Data Cache 적용
+- nginx Reverse Proxy 개선
+  - gzip 압축,
+  - cache 적용
+  - TLS, HTTP/2 설정
 
 ---
 
