@@ -45,7 +45,40 @@ npm run dev
 ### 1단계 - 화면 응답 개선하기
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
-2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+|             |지하철 노선도(개선전)| 지하철 노선도(개선후)| 서울교통공사 | 네이버지도 | 카카오맵 |
+|-------------|----------------|------------|-------------|-----------|---------|
+| Performance |  33            | 49         |   43        | 59        | 69      |
+| FCP         | 14.6s          | 2.5s       | 6.4s        | 2.2s      | 1.7s    |
+| Speed Index | 14.6s          | 4.4s       | 7.7s        | 5.6s      | 6.4s    | 
+| LCP         | 15.1s          | 5.7s       | 6.6s        | 8.3s      | 6.4s    |
+| TTI         | 15.1s          | 5.8s       | 8.4s        | 5.9s      | 4.1s    | 
+| TBT         | 490ms          | 860ms      | 420ms       | 290ms     | 30ms    |
+| CLS         | 0.042          | 0.04       | 0           | 0.03      | 0.005   | 
+
+
+<img width="1038" alt="pagespeed_desktop" src="https://user-images.githubusercontent.com/34808501/178098202-faf4981f-cbbe-4666-b763-d08e34fe711b.png">
+<img width="1043" alt="pagespeed_mobile" src="https://user-images.githubusercontent.com/34808501/178098205-12768517-7c3b-4874-b61d-70810fd92b97.png">
+
+* Smoke
+* ![](k6/smoke/before_smoke_test.png)
+* ![](k6/smoke/after_smoke_test.png)
+
+* Load
+* ![](k6/load/before_load_test.png)
+* ![](k6/load/after_load_test.png)
+
+* Stress
+* ![](k6/stress/before_stress_test.png)
+* ![](k6/stress/after_stress_test.png)
+
+3. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+- @Transactional(readOnly=true) 읽기전용 트랜잭션 처리
+- Spring Data Cache 적용
+- nginx Reverse Proxy 개선
+  - gzip 압축,
+  - cache 적용
+  - TLS, HTTP/2 설정
+- js 파일에 async 속성 추가
 
 ---
 
