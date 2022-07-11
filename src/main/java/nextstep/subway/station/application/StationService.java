@@ -41,7 +41,6 @@ public class StationService {
   @Caching(
       evict = {
           @CacheEvict(value = "stations", allEntries = true),
-          @CacheEvict(value = "station", key = "#id")
       }
   )
   public void deleteStationById(Long id) {
@@ -49,12 +48,10 @@ public class StationService {
   }
 
 
-  @Cacheable(value = "station", key = "#id")
   public Station findStationById(Long id) {
     return stationRepository.findById(id).orElseThrow(RuntimeException::new);
   }
 
-  @Cacheable(value = "station", key = "#id")
   public Station findById(Long id) {
     return stationRepository.findById(id).orElseThrow(RuntimeException::new);
   }
