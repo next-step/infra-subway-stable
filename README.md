@@ -44,8 +44,35 @@ npm run dev
 
 ### 1단계 - 화면 응답 개선하기
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
+* Smoke 테스트 결과
+![smoke_test_result](docs/images/smoke_test_result.png)
+
+* Load 테스트 결과
+![load_test_result](docs/images/load_test_result.png)
+
+* Stress 테스트 결과
+![stress_test_result](docs/images/stress_test_result.png)
 
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+* 테스트 했던 경로는 `/path`와 `/stations` 입니다.
+1. Gzip 압축으로 정적 리소스 압축 하여 전송 용량 최적화.  
+![](docs/images/gzip.png)
+2. 정적리소스 캐싱 활용하여 요청 수 최소화.  
+![](docs/images/x-proxy-cache.png)
+3. HTTP/2 프로토콜 적용  
+![](docs/images/HTTP2.png)
+
+4. /stations API 데이터 베이스 조회 Redis 캐싱
+* 서비스 레이어 캐시 적용  
+![](docs/images/redis1.png)  
+* LocalDateTime 파싱을 위한 JsonSerialize/JsonDeserialize 적용  
+![](docs/images/redis2.png)  
+* 캐시 설정  
+![](docs/images/redis3.png)  
+* Redis 서버 설정 프로퍼티  
+![](docs/images/redis4.png)  
+* Redis 서버 Docker 프로세스  
+![](docs/images/redis5.png)  
 
 ---
 
