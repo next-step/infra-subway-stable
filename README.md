@@ -45,7 +45,22 @@ npm run dev
 ### 1단계 - 화면 응답 개선하기
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
-2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요<br>
+   (Smoke 테스트 후 Load 테스트 결과 캡쳐)
+- Reverse Proxy 개선하기
+  - gzip 압축
+    - ![](k6/images/after/reverseproxy/gzip-http.png) 
+    - ![](k6/images/after/reverseproxy/gzip-k6.png)
+    - ![](k6/images/after/reverseproxy/gzip-grafana.png)
+  - cache
+    - ![](k6/images/after/reverseproxy/cache-http.png)
+    - ![](k6/images/after/reverseproxy/cache-k6.png)
+    - ![](k6/images/after/reverseproxy/cache-grafana.png)
+  - TLS, HTTP/2 설정
+    - ![](k6/images/after/reverseproxy/h2-http.png)
+- WAS 성능 개선하기
+  - Spring Data Cache
+  - 비동기 처리
 
 ---
 
