@@ -44,8 +44,21 @@ npm run dev
 
 ### 1단계 - 화면 응답 개선하기
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
-
+- nginx 튜닝
+  - smoke
+    - ![smoke](./test_result/nginx_tuning/smoke/smoke.png)
+  - load
+    - ![cli](./test_result/nginx_tuning/load/cli.png)
+    - ![dashboard](./test_result/nginx_tuning/load/dashboard.png)
+    - ![aws-dashboard](./test_result/nginx_tuning/load/aws-dashboar.png)
+  - stress
+    - ![cli](./test_result/nginx_tuning/stress/cli.png)
+    - ![dashboard](./test_result/nginx_tuning/stress/dashboard.png)
+  - ![aws-dashboard](./test_result/nginx_tuning/stress/aws-dashboard.png)
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+  - 메인 화면에 대한 성능 테스트이므로, 데이터 압축, 캐싱 등 정적 리소스 서빙에 집중했습니다.
+  - 실질적으로 가장 큰 부분을 차지하여, 해당 개선만으로도 유의미한 차이가 발생했습니다.
+  - 시나리오가 좀 더 있었다면 여러 요소들을 고려해서 개선해보았을 것 같습니다.
 
 ---
 
