@@ -19,33 +19,49 @@
 ## 🚀 Getting Started
 
 ### Install
+
 #### npm 설치
+
 ```
 cd frontend
 npm install
 ```
+
 > `frontend` 디렉토리에서 수행해야 합니다.
 
 ### Usage
+
 #### webpack server 구동
+
 ```
 npm run dev
 ```
+
 #### application 구동
+
 ```
 ./gradlew clean build
 ```
+
 <br>
 
 ## 미션
 
 * 미션 진행 후에 아래 질문의 답을 작성하여 PR을 보내주세요.
 
-
 ### 1단계 - 화면 응답 개선하기
+
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
-2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요  
+   2.1. Reverse Proxy 개선하기 with nginx
+    1. gzip 압축
+    2. cache 적용
+    3. TLS, HTTP/2 설정
+
+   2.2. WAS 성능 개선하기
+    1. Spring Data Cache 적용
+    2. 사용 Query에 직접 캐시 반영
 
 ---
 
@@ -62,7 +78,9 @@ $ stress -c 2
 3. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
 ---
+
 ### [추가] 1단계 - 쿠버네티스로 구성하기
+
 1. 클러스터를 어떻게 구성했는지 알려주세요~ (마스터 노드 : n 대, 워커 노드 n대)
 
 2. 스트레스 테스트 결과를 공유해주세요 (기존에 container 한대 운영시 한계점도 같이 공유해주세요)
