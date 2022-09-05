@@ -65,3 +65,6 @@ build_application
 
 ## 6.Restart reverse proxy
 "$SHELL_SCRIPT_PATH"/reverse_proxy.sh
+
+## 7.Restart redis
+"$SHELL_SCRIPT_PATH"/redis.sh
