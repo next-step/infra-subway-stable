@@ -17,13 +17,6 @@ add_line_crlf() {
   echo ""
 }
 
-move_project_path() {
-  echo -e "${txtylw}=======================================${txtrst}"
-  echo -e "${txtgrn} Permit scripts execution for other ${txtrst}"
-  echo -e "${txtylw}=======================================${txtrst}"
-  cd "$PROJECT_DIR" || exit
-}
-
 permit_authority_scripts() {
   echo -e "${txtylw}=======================================${txtrst}"
   echo -e "${txtgrn} Permit scripts execution for other ${txtrst}"
