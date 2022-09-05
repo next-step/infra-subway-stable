@@ -1,8 +1,9 @@
 #!/bin/bash
 
 ## Variables
+PROJECT_DIR="$HOME/nextstep/infra-subway-stable"
 LOGGING_DIR="$HOME/nextstep/logs"
-SCRIPT_DIR="$HOME/nextstep/infra-subway-monitoring/scripts"
+SCRIPT_DIR="$PROJECT_DIR/scripts"
 
 ## Colors
 txtrst='\033[1;37m' # White
@@ -14,6 +15,13 @@ txtgra='\033[1;30m' # Gray
 
 add_line_crlf() {
   echo ""
+}
+
+move_project_path() {
+  echo -e "${txtylw}=======================================${txtrst}"
+  echo -e "${txtgrn} Permit scripts execution for other ${txtrst}"
+  echo -e "${txtylw}=======================================${txtrst}"
+  cd "$PROJECT_DIR" || exit
 }
 
 permit_authority_scripts() {
