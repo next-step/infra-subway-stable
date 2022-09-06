@@ -31,9 +31,10 @@ public class MemberService {
     }
 
     @CachePut(value = "member", key = "#id")
-    public void updateMember(Long id, MemberRequest param) {
+    public MemberResponse updateMember(Long id, MemberRequest param) {
         Member member = memberRepository.findById(id).orElseThrow(RuntimeException::new);
         member.update(param.toMember());
+        return MemberResponse.of(member);
     }
 
     @CacheEvict(value = "member", key = "#id")
