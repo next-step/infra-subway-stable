@@ -52,6 +52,36 @@ npm run dev
 ### 1단계 - 화면 응답 개선하기
 
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
+    1. Smoke Before & After  
+       1.1. "My Page"  
+       1.1.1.
+       Before  ![Before "My Page" Smoke 테스트 결과 화면](./k6/smoke/before/my_page-smoke_result.png)
+       1.1.2. After  ![After "My Page" Smoke 테스트 결과 화면](./k6/smoke/after/my_page-smoke_result.png)
+       1.2. "Path Searching Page"  
+       1.2.1.
+       Before  ![After "Path Searching Page" 테스트 결과 화면](./k6/smoke/before/my_page-smoke_result.png)
+    2. Load Before & After  
+       2.1. "My Page"  
+       2.1.1.
+       Before  ![Load Test: Before "My Page" 결과 화면](./k6/load/before/my_page-load_result.png)
+       2.1.2.
+       After  ![Load Test: After "My Page" 결과 화면](./k6/load/after/my_page-load_result.png)
+       2.2. "Path Searching Page"  
+       2.2.1.
+       Before  ![Load Test: After "Path Searching Page" 결과 화면](./k6/load/before/path_searching_page-load_result.png)
+       2.2.2.
+       After  ![Load Test: After "Path Searching Page" 결과 화면](./k6/load/after/path_searching_page-load_result.png)
+    3. Stress Before & After
+       3.1. "My Page"  
+       3.1.1.
+       Before  ![Stress Test: Before "My Page" 결과 화면](./k6/stress/before/my_page-stress_result.png)
+       3.1.2.
+       After  ![Stress Test: After "My Page" 결과 화면](./k6/stress/after/my_page-stress_result.png)
+       3.2. "Path Searching Page"  
+       3.2.1.
+       Before  ![Stress Test: After "Path Searching Page" 결과 화면](./k6/stress/before/path_searching_page-stress_result.png)
+       3.2.2.
+       After  ![Stress Test: After "Path Searching Page" 결과 화면](./k6/stress/after/path_searching_page-stress_result.png)
 
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요  
    2.1. Reverse Proxy 개선하기 with nginx
@@ -62,6 +92,12 @@ npm run dev
    2.2. WAS 성능 개선하기
     1. Spring Data Cache 적용
     2. 사용 Query에 직접 캐시 반영
+    3. API 응답 객체 필드 최적화
+
+**Smoke/Load/Stress Test 개선 결과 총평**
+- Smoke/Load/Stress Test 과정에서 전반적으로 성능 개선이 있었습니다.  
+- 하지만 Stress Test 에서는 개선하고 나서도 시나리오에 맞는 테스트 트래픽을 처리하기에 버거움이 있어서 목표로 했던 'http_req_duration' 을 많이 초과하여 목표을 달성하지 못했습니다.
+- 이후에 Scale-out(ASG, ...) 이나 Scale-up(Instance type upscale, ...)로 트래픽을 병행 처리하면 더 좋은 트래픽 개선을 가질 수 있을 것이라고 추정합니다.
 
 ---
 
