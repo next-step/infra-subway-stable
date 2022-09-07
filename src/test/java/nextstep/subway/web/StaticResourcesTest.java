@@ -1,10 +1,11 @@
 package nextstep.subway.web;
 
-import static nextstep.subway.config.WebMvcConfig.PREFIX_STATIC_RESOURCES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import nextstep.subway.support.WebVersion;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,9 @@ public class StaticResourcesTest {
     @Autowired
     private WebVersion version;
 
-    @Test
-    void get_static_resources() {
-        String uri = PREFIX_STATIC_RESOURCES + "/" + version.getVersion() + "/js/main.js";
+    @ParameterizedTest
+    @ValueSource(strings = {"/js/main.js", "/js/test.js"})
+    void getJsFileTest(String uri) {
         EntityExchangeResult<String> response = client
                 .get()
                 .uri(uri)
@@ -34,7 +35,10 @@ public class StaticResourcesTest {
                 .expectStatus()
                 .isOk()
                 .expectHeader()
-                .cacheControl(CacheControl.noCache().cachePrivate())
+                .cacheControl(
+                        CacheControl.noCache()
+                                .cachePrivate()
+                )
                 .expectBody(String.class)
                 .returnResult();
 
@@ -43,8 +47,7 @@ public class StaticResourcesTest {
         String etag = response.getResponseHeaders()
                 .getETag();
 
-        client
-                .get()
+        client.get()
                 .uri(uri)
                 .header("If-None-Match", etag)
                 .exchange()
