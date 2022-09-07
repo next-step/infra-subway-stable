@@ -45,4 +45,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 );
     }
 
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        Filter etagHeaderFilter = new ShallowEtagHeaderFilter();
+        registration.setFilter(etagHeaderFilter);
+        registration.addUrlPatterns("/*");
+        return registration;
+    }
 }
