@@ -2,7 +2,7 @@ package nextstep.subway.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import nextstep.subway.support.WebVersion;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -22,9 +22,6 @@ public class StaticResourcesTest {
     @Autowired
     private WebTestClient client;
 
-    @Autowired
-    private WebVersion version;
-
     @ParameterizedTest
     @ValueSource(strings = {"/js/main.js", "/js/test.js"})
     void getJsFileTest(String uri) {
@@ -38,6 +35,35 @@ public class StaticResourcesTest {
                 .cacheControl(
                         CacheControl.noCache()
                                 .cachePrivate()
+                )
+                .expectBody(String.class)
+                .returnResult();
+
+        logger.debug("body : {}", response.getResponseBody());
+
+        String etag = response.getResponseHeaders()
+                .getETag();
+
+        client.get()
+                .uri(uri)
+                .header("If-None-Match", etag)
+                .exchange()
+                .expectStatus()
+                .isNotModified();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"/css/test.css"})
+    void getCssFileTest(String uri) {
+        EntityExchangeResult<String> response = client
+                .get()
+                .uri(uri)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectHeader()
+                .cacheControl(
+                        CacheControl.maxAge(365L, TimeUnit.DAYS)
                 )
                 .expectBody(String.class)
                 .returnResult();
