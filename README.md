@@ -50,17 +50,17 @@ npm run dev
 - Reverse Proxy 개선하기
   - gzip 압축
     - ![](k6/images/after/reverseproxy/gzip-http.png) 
-    - ![](k6/images/after/reverseproxy/gzip-k6.png)
     - ![](k6/images/after/reverseproxy/gzip-grafana.png)
   - cache
     - ![](k6/images/after/reverseproxy/cache-http.png)
-    - ![](k6/images/after/reverseproxy/cache-k6.png)
     - ![](k6/images/after/reverseproxy/cache-grafana.png)
   - TLS, HTTP/2 설정
     - ![](k6/images/after/reverseproxy/h2-http.png)
+    - ![](k6/images/after/reverseproxy/h2-grafana.png)
 - WAS 성능 개선하기
   - Spring Data Cache
-  - 비동기 처리
+    - ![](k6/images/after/was/redis-cli.png)
+    - ![](k6/images/after/was/redis-grafana.png)
 
 ---
 
