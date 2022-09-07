@@ -1,5 +1,6 @@
 package nextstep.subway.config;
 
+import java.util.concurrent.TimeUnit;
 import javax.servlet.Filter;
 import nextstep.subway.support.WebVersion;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -23,11 +24,25 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        CacheControl cacheControl = CacheControl.noCache()
-                .cachePrivate();
-        registry.addResourceHandler(PREFIX_STATIC_RESOURCES + "/" + webVersion.getVersion() + "/**")
+        registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/")
-                .setCacheControl(cacheControl);
+                .setCacheControl(
+                        CacheControl.noCache()
+                                .cachePrivate()
+                );
+
+        registry.addResourceHandler("/**/*.js")
+                .addResourceLocations("classpath:/static/")
+                .setCacheControl(
+                        CacheControl.noCache()
+                                .cachePrivate()
+                );
+
+        registry.addResourceHandler("/**/*.css")
+                .addResourceLocations("classpath:/static/")
+                .setCacheControl(
+                        CacheControl.maxAge(365L, TimeUnit.DAYS)
+                );
     }
 
 }
