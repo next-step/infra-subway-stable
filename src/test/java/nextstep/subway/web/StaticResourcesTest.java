@@ -81,23 +81,33 @@ public class StaticResourcesTest {
                 .isNotModified();
     }
 
-    @Test
-    void stations() {
+    @ParameterizedTest
+    @ValueSource(strings = {"/images/logo_small.png", "/images/main_logo.png"})
+    void getAllStaticFileTest(String uri) {
         EntityExchangeResult<String> response = client
                 .get()
-                .uri("/stations")
+                .uri(uri)
                 .exchange()
                 .expectStatus()
                 .isOk()
                 .expectHeader()
-                .cacheControl(CacheControl.empty())
+                .cacheControl(
+                        CacheControl.noCache()
+                                .cachePrivate()
+                )
                 .expectBody(String.class)
                 .returnResult();
 
-        String etag = response
-                .getResponseHeaders()
+        logger.debug("body : {}", response.getResponseBody());
+
+        String etag = response.getResponseHeaders()
                 .getETag();
 
-        assertThat(etag).isNull();
+        client.get()
+                .uri(uri)
+                .header("If-None-Match", etag)
+                .exchange()
+                .expectStatus()
+                .isNotModified();
     }
 }
