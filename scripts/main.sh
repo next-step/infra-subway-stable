@@ -51,20 +51,20 @@ build_application() {
 ## 1.Preprocess
 "$SHELL_SCRIPT_PATH"/preprocess.sh
 
-## 2.Restart redis
-"$SHELL_SCRIPT_PATH"/redis.sh
-
-## 3.Pull branch
+## 2.Pull branch
 pull_branch
 
-## 4.Build application by Gradle
+## 3.Build application by Gradle
 build_application
 
-## 5.Shutdown previous processes
+## 4.Shutdown previous processes
 "$SHELL_SCRIPT_PATH"/shutdown.sh
 
-## 6.Start new process
+## 5.Start new process
 "$SHELL_SCRIPT_PATH"/start.sh "$PROFILE" "$APPLICATION_JAR_PATH_FILENAME"
 
-## 7.Restart reverse proxy
+## 6.Restart reverse proxy
 "$SHELL_SCRIPT_PATH"/reverse_proxy.sh
+
+## 7.Restart redis
+"$SHELL_SCRIPT_PATH"/redis.sh
