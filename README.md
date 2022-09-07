@@ -45,6 +45,12 @@ npm run dev
 ### 1단계 - 화면 응답 개선하기
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
+| 테스트 | 개선전 | 개선후 |
+|---------|---------|---------|
+| smoke | ![](k6/images/before/before-smoke-grafana.png) | ![](k6/images/after/after-smoke-grafana.png) |
+| load | ![](k6/images/before/before-load-grafana.png) | ![](k6/images/after/was/redis-grafana.png) |
+| stress | ![](k6/images/before/before-stress-grafana.png) | ![](k6/images/after/after-stress-grafana.png) |
+
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요<br>
    (Smoke 테스트 후 Load 테스트 결과 캡쳐)
 - Reverse Proxy 개선하기
