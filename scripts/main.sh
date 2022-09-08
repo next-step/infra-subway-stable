@@ -51,17 +51,17 @@ build_application() {
 ## 1.Preprocess
 "$SHELL_SCRIPT_PATH"/preprocess.sh
 
-## 2.Pull branch
+## 2.Restart redis
+"$SHELL_SCRIPT_PATH"/redis.sh
+
+## 3.Pull branch
 pull_branch
 
-## 3.Build application by Gradle
+## 4.Build application by Gradle
 build_application
 
-## 4.Shutdown previous processes
+## 5.Shutdown previous processes
 "$SHELL_SCRIPT_PATH"/shutdown.sh
-
-## 5.Restart redis
-"$SHELL_SCRIPT_PATH"/redis.sh
 
 ## 6.Start new process
 "$SHELL_SCRIPT_PATH"/start.sh "$PROFILE" "$APPLICATION_JAR_PATH_FILENAME"
