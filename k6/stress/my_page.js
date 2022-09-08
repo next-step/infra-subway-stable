@@ -7,11 +7,16 @@ export let errorRate = new Rate('errors');
 
 export let options = {
   stages: [
-    {duration: '2m', target: 80}, // Stage: ramp up
-    {duration: '2m', target: 160}, // Stage: ramp up
-    {duration: '2m', target: 240}, // Stage: ramp up
-    {duration: '2m', target: 320}, // Stage: ramp up
-    {duration: '2m', target: 400}, // Stage: ramp up
+    {duration: '10s', target: 50}, // Stage: maintenance
+    {duration: '2m', target: 50}, // Stage: ramp up
+    {duration: '10s', target: 100}, // Stage: maintenance
+    {duration: '2m', target: 100}, // Stage: ramp up
+    {duration: '10s', target: 150}, // Stage: maintenance
+    {duration: '2m', target: 150}, // Stage: ramp up
+    {duration: '10s', target: 200}, // Stage: maintenance
+    {duration: '2m', target: 250}, // Stage: ramp up
+    {duration: '10s', target: 300}, // Stage: maintenance
+    {duration: '2m', target: 300}, // Stage: ramp up
     {duration: '10s', target: 0}, // Stage: ramp down
   ],
   thresholds: {
