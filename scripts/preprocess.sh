@@ -38,16 +38,16 @@ make_logging_directory() {
   add_line_crlf
 }
 
-copy_nginx_pem_files() {
-  echo -e "${txtylw}=======================================${txtrst}"
-  echo -e "${txtgrn} Copy pem file for nginx ${txtrst}"
-  echo -e "${txtylw}=======================================${txtrst}"
-  cp "$LOCAL_PEM_DIR/fullchain.pem" "$PROJECT_PEM_DIR"
-  cp "$LOCAL_PEM_DIR/privkey.pem" "$PROJECT_PEM_DIR"
-}
+#copy_nginx_pem_files() {
+#  echo -e "${txtylw}=======================================${txtrst}"
+#  echo -e "${txtgrn} Copy pem file for nginx ${txtrst}"
+#  echo -e "${txtylw}=======================================${txtrst}"
+#  cp "$LOCAL_PEM_DIR/fullchain.pem" "$PROJECT_PEM_DIR"
+#  cp "$LOCAL_PEM_DIR/privkey.pem" "$PROJECT_PEM_DIR"
+#}
 
 permit_authority_scripts
 
 make_logging_directory
 
-copy_nginx_pem_files
+#copy_nginx_pem_files
