@@ -43,9 +43,44 @@ npm run dev
 
 
 ### 1단계 - 화면 응답 개선하기
+####  목표 설정
+- latency : 100ms 이하
+- throughput
+    - MAU : 583만 ( 카카오맵 MAU(729만) 대비 80%로 설정 )
+    - DAU : 19.4만
+    - 1명당 1일 평균 접속 수 : 2회 (출/퇴근시 접속으로 가정)
+    - 1일 총 접속 수 : 38.8만
+    - 1일 평균 rps : 38.8만/86400 = 4.49
+    - 1일 최대 rps : 4.49 * 6 = 26.94
+- 부하 유지기간
+    - smoke : 1m
+    - load : 25m
+    - stress : 4.2m
+- VUser
+    - 요청수 : 4회 (메인, 로그인페이지, 로그인 요청, 검색)
+    - T : 4 * 0.2s + 1s =  1.8s
+    - 최대 VUser : (26.94 * 1.8) / 4 = 12.12
+    - 최소 VUser : (4.49 * 1.8) / 4 = 2.02
+- 부하 테스트 시 저장될 데이터 건수 및 크기
+    - 조회
+        - 노선 : 23개
+        - 구간 : 340개
+    - 역 : 616개
+    - 사용자 : 1개
+  
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
+- 스크립트
+  - scenario/script
+- 결과
+  - 개선 전 : scenario/before
+  - reverse proxy 개선 : scenario/reverse_proxy
+  - redis cache : scenario/WAS
 
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+- nginx gzip 적용
+- TLS, HTTP/2 설정
+- nginx cache 압축 적용
+- redis 적용
 
 ---
 
