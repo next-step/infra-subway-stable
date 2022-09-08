@@ -76,12 +76,12 @@ npm run dev
        3.1.1.
        Before  ![Stress Test: Before "My Page" 결과 화면](./k6/stress/before/my_page-stress_result.png)
        3.1.2.
-       After  ![Stress Test: After "My Page" 결과 화면](./k6/stress/after/my_page-stress_result.png)
+       After  ![Stress Test: After "My Page" 결과 화면](k6/stress/after_optimization/my_page-stress_result.png)
        3.2. "Path Searching Page"  
        3.2.1.
        Before  ![Stress Test: After "Path Searching Page" 결과 화면](./k6/stress/before/path_searching_page-stress_result.png)
        3.2.2.
-       After  ![Stress Test: After "Path Searching Page" 결과 화면](./k6/stress/after/path_searching_page-stress_result.png)
+       After  ![Stress Test: After "Path Searching Page" 결과 화면](k6/stress/after_optimization/path_searching_page-stress_result.png)
 
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요  
    2.1. Reverse Proxy 개선하기 with nginx
