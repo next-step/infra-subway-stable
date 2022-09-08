@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## Variables
-PROJECT_DIR="$HOME/nextstep/infra-subway-stable"
-LOGGING_DIR="$HOME/nextstep/logs"
-LOCAL_PEM_DIR="$HOME/nextstep/pem"
+PROJECT_DIR="$HOME/infra-subway-stable"
+LOGGING_DIR="$HOME/logs"
+LOCAL_PEM_DIR="$HOME/pem"
 PROJECT_PEM_DIR="$PROJECT_DIR/pem"
 SCRIPT_DIR="$PROJECT_DIR/scripts"
 
