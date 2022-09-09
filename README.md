@@ -112,6 +112,33 @@ npm run dev
 
 ### 2단계 - 스케일 아웃
 
+``` text
+급격한 트래픽을 처리하기 위해서 다음 목적으로 구성
+    1. 많은 트래픽을 물리적으로 처리하기 위한 Scale-out Maximum 6대 
+    2. 증설 인스턴스의 빠른 서비스 제공을 위한 Target Group 의 빠른 Health Check
+
+ASG: orgojy-asg
+    최소용량: 1
+    최대용량: 6
+    동적크기조정정책
+        - 정책 유형: 대상 추적 크기 조정
+        - 활성화 또는 비활성화? 활성
+        - 다음 경우에 정책 실행: 평균 CPU 사용률을(를) 50(으)로 유지하는 데 필요한 경우
+        - 작업 수행: 필요에 따라 용량 단위 추가 또는 제거
+        - 인스턴스 요구 사항: 300초(지표에 포함하기 전 워밍업 시간)
+        - 축소: 활성
+ALB: orgojy-alb
+    - Target Group: orgojy-tg
+        - Targets: (1) 443 -> 8080
+        - Health Checks
+            - Protocol: HTTP
+            - Healthy threshold: 2 consecutive health check successes
+            - Unhealthy threshold: 2 consecutive health check failures
+            - Timeout: 9 seconds
+            - Interval: 10 seconds
+            - Success codes: 200
+```
+
 1. Launch Template 링크를 공유해주세요.
 
 - [LT-orgojy-webservice (lt-04079e0b0f96eae13)](https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#LaunchTemplateDetails:launchTemplateId=lt-04079e0b0f96eae13)
@@ -121,6 +148,8 @@ npm run dev
 ```sh
 $ stress -c 2
 ```
+
+![orgojy-asg's CloudWatch](./k6/stress/after_autoscalinggroup/asg_cpu_stress_test_result.png)
 
 3. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
 
