@@ -65,12 +65,12 @@ npm run dev
        2.1.1.
        Before  ![Load Test: Before "My Page" 결과 화면](./k6/load/before/my_page-load_result.png)
        2.1.2.
-       After  ![Load Test: After "My Page" 결과 화면](./k6/load/after/my_page-load_result.png)
+       After  ![Load Test: After "My Page" 결과 화면](k6/load/after_optimization/my_page-load_result.png)
        2.2. "Path Searching Page"  
        2.2.1.
        Before  ![Load Test: After "Path Searching Page" 결과 화면](./k6/load/before/path_searching_page-load_result.png)
        2.2.2.
-       After  ![Load Test: After "Path Searching Page" 결과 화면](./k6/load/after/path_searching_page-load_result.png)
+       After  ![Load Test: After "Path Searching Page" 결과 화면](k6/load/after_optimization/path_searching_page-load_result.png)
     3. Stress Before & After
        3.1. "My Page"  
        3.1.1.
