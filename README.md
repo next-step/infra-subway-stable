@@ -114,6 +114,8 @@ npm run dev
 
 1. Launch Template 링크를 공유해주세요.
 
+- [LT-orgojy-webservice (lt-04079e0b0f96eae13)](https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#LaunchTemplateDetails:launchTemplateId=lt-04079e0b0f96eae13)
+
 2. cpu 부하 실행 후 EC2 추가생성 결과를 공유해주세요. (Cloudwatch 캡쳐)
 
 ```sh
