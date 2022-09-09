@@ -65,7 +65,7 @@ npm run dev
 - Before  ![x](./k6/smoke/before/path_searching_page_result.png)
 - After Optimization  ![x](./k6/smoke/after_optimization/path_searching_page_result.png)
 
-### Load Test
+#### Load Test
 
 "My Page"
 
@@ -77,7 +77,7 @@ npm run dev
 - Before  ![x](./k6/load/before/path_searching_page_result.png)
 - After Optimization  ![x](./k6/load/after_optimization/path_searching_page_result.png)
 
-### Stress Test
+#### Stress Test
 
 "My Page"
 
@@ -123,6 +123,48 @@ $ stress -c 2
 ```
 
 3. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
+
+#### Smoke Test
+
+"My Page"
+
+- Before  ![x](./k6/smoke/before/my_page_result.png)
+- After Optimization  ![x](./k6/smoke/after_optimization/my_page_result.png)
+- After ASG  ![x](./k6/smoke/after_autoscalinggroup/my_page_result.png)
+
+"Path Searching Page"
+
+- Before  ![x](./k6/smoke/before/path_searching_page_result.png)
+- After Optimization  ![x](./k6/smoke/after_optimization/path_searching_page_result.png)
+- After ASG  ![x](./k6/smoke/after_autoscalinggroup/path_searching_page_result.png)
+
+#### Load Test
+
+"My Page"
+
+- Before  ![x](./k6/load/before/my_page_result.png)
+- After Optimization  ![x](./k6/load/after_optimization/my_page_result.png)
+- After ASG  ![x](./k6/load/after_autoscalinggroup/my_page_result.png)
+
+"Path Searching Page"
+
+- Before  ![x](./k6/load/before/path_searching_page_result.png)
+- After Optimization  ![x](./k6/load/after_optimization/path_searching_page_result.png)
+- After ASG  ![x](./k6/load/after_autoscalinggroup/path_searching_page_result.png)
+
+#### Stress Test
+
+"My Page"
+
+- Before  ![x](./k6/stress/before/my_page_result.png)
+- After Optimization  ![x](k6/stress/after_optimization/my_page_result.png)
+- After ASG  ![x](./k6/stress/after_autoscalinggroup/my_page_result.png)
+
+"Path Searching Page"
+
+- Before  ![x](./k6/stress/before/path_searching_page_result.png)
+- After Optimization  ![x](k6/stress/after_optimization/path_searching_page_result.png)
+- After ASG  ![x](./k6/stress/after_autoscalinggroup/path_searching_page_result.png)
 
 ---
 
