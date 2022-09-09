@@ -32,7 +32,8 @@ export default function () {
   addFavorite();
 }
 
-const BASE_URL = 'https://orgojy.ga';
+const BASE_URL_FOR_ASG = 'https://www.orgojy.ga';
+// const BASE_URL_FOR_OPTIMIZATION = 'https://orgojy.ga';
 const MY_EMAIL = 'orgojy@gmail.com';
 const MY_PASSWORD = '1234';
 
