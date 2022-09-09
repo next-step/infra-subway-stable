@@ -56,7 +56,7 @@ npm run dev
        1.1. "My Page"  
        1.1.1.
        Before  ![Before "My Page" Smoke 테스트 결과 화면](./k6/smoke/before/my_page-smoke_result.png)
-       1.1.2. After  ![After "My Page" Smoke 테스트 결과 화면](./k6/smoke/after/my_page-smoke_result.png)
+       1.1.2. After  ![After "My Page" Smoke 테스트 결과 화면](k6/smoke/after_optimization/my_page-smoke_result.png)
        1.2. "Path Searching Page"  
        1.2.1.
        Before  ![After "Path Searching Page" 테스트 결과 화면](./k6/smoke/before/my_page-smoke_result.png)
