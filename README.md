@@ -157,43 +157,71 @@ $ stress -c 2
 
 "My Page"
 
-- Before  ![x](./k6/smoke/before/my_page_result.png)
 - After Optimization  ![x](./k6/smoke/after_optimization/my_page_result.png)
 - After ASG  ![x](./k6/smoke/after_autoscalinggroup/my_page_result.png)
 
+ASG 반영 후, 개선점
+
+- ASG 반영 후, ALB를 타기 때문에 트래픽에 대한 전체적인 성능 저하가 발생한 것으로 보인다.
+- 서비스에는 큰 차이를 느끼지는 못하는 정도의 저하이다.
+
 "Path Searching Page"
 
-- Before  ![x](./k6/smoke/before/path_searching_page_result.png)
 - After Optimization  ![x](./k6/smoke/after_optimization/path_searching_page_result.png)
 - After ASG  ![x](./k6/smoke/after_autoscalinggroup/path_searching_page_result.png)
+
+ASG 반영 후, 개선점
+
+- ASG 반영 후, ALB를 타기 때문에 트래픽에 대한 전체적인 성능 저하가 발생한 것으로 보인다.
+- 서비스에는 큰 차이를 느끼지는 못하는 정도의 저하이다.
 
 #### Load Test
 
 "My Page"
 
-- Before  ![x](./k6/load/before/my_page_result.png)
 - After Optimization  ![x](./k6/load/after_optimization/my_page_result.png)
 - After ASG  ![x](./k6/load/after_autoscalinggroup/my_page_result.png)
 
+ASG 반영 후, 개선점
+
+- ASG 반영 후, ALB를 타기 때문에 트래픽에 대한 전체적인 성능 저하가 발생한 것으로 보인다.
+- 하지만, VU 의 수치가 적어서 그렇지 트래픽이 많아질 수록 유의미하게 Smoke Test 와 비교되는 성능 개선이 보인다.
+
 "Path Searching Page"
 
-- Before  ![x](./k6/load/before/path_searching_page_result.png)
 - After Optimization  ![x](./k6/load/after_optimization/path_searching_page_result.png)
 - After ASG  ![x](./k6/load/after_autoscalinggroup/path_searching_page_result.png)
+
+ASG 반영 후, 개선점
+
+- ASG 반영 후, ALB를 타기 때문에 트래픽에 대한 전체적인 성능 저하가 발생한 것으로 보인다.
+- 하지만, VU 의 수치가 적어서 그렇지 트래픽이 많아질 수록 유의미하게 Smoke Test 와 비교되는 성능 개선이 보인다.
 
 #### Stress Test
 
 "My Page"
 
-- Before  ![x](./k6/stress/before/my_page_result.png)
 - After Optimization  ![x](k6/stress/after_optimization/my_page_result.png)
 - After ASG  ![x](./k6/stress/after_autoscalinggroup/my_page_result.png)
 
+ASG 반영 후, 개선점
+
+- 평균 응답시간: 199.78ms -> 84.01ms (68% 개선)
+- 중앙 응답시간: 127.15ms -> 75.05ms (41% 개선)
+- 90% 요청 응답시간 경계값: 385.15ms -> 128.03ms (67% 개선)
+- 95% 요청 응답시간 경계값: 753.47ms -> 140.2ms (81% 개선)
+
 "Path Searching Page"
 
-- Before  ![x](./k6/stress/before/path_searching_page_result.png)
 - After Optimization  ![x](k6/stress/after_optimization/path_searching_page_result.png)
 - After ASG  ![x](./k6/stress/after_autoscalinggroup/path_searching_page_result.png)
+
+ASG 반영 후, 개선점
+
+- 평균 응답시간: 1.62s -> 148.98ms (91% 개선)
+- 중앙 응답시간: 503.54ms -> 90.89ms (82% 개선)
+- 90% 요청 응답시간 경계값: 5.09s -> 319.5ms (94% 개선)
+- 95% 요청 응답시간 경계값: 6.41s -> 488.5ms (92% 개선)
 
 ---
 
