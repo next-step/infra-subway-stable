@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## Variables
-PROJECT_DIR="$HOME/nextstep/infra-subway-stable"
-LOGGING_DIR="$HOME/nextstep/logs"
-LOCAL_PEM_DIR="$HOME/nextstep/pem"
+PROJECT_DIR="$HOME/infra-subway-stable"
+LOGGING_DIR="$HOME/logs"
+LOCAL_PEM_DIR="$HOME/pem"
 PROJECT_PEM_DIR="$PROJECT_DIR/pem"
 SCRIPT_DIR="$PROJECT_DIR/scripts"
 
@@ -38,16 +38,16 @@ make_logging_directory() {
   add_line_crlf
 }
 
-copy_nginx_pem_files() {
-  echo -e "${txtylw}=======================================${txtrst}"
-  echo -e "${txtgrn} Copy pem file for nginx ${txtrst}"
-  echo -e "${txtylw}=======================================${txtrst}"
-  cp "$LOCAL_PEM_DIR/fullchain.pem" "$PROJECT_PEM_DIR"
-  cp "$LOCAL_PEM_DIR/privkey.pem" "$PROJECT_PEM_DIR"
-}
+#copy_nginx_pem_files() {
+#  echo -e "${txtylw}=======================================${txtrst}"
+#  echo -e "${txtgrn} Copy pem file for nginx ${txtrst}"
+#  echo -e "${txtylw}=======================================${txtrst}"
+#  cp "$LOCAL_PEM_DIR/fullchain.pem" "$PROJECT_PEM_DIR"
+#  cp "$LOCAL_PEM_DIR/privkey.pem" "$PROJECT_PEM_DIR"
+#}
 
 permit_authority_scripts
 
 make_logging_directory
 
-copy_nginx_pem_files
+#copy_nginx_pem_files

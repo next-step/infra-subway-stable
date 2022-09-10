@@ -2,7 +2,7 @@
 
 PROFILE=$1
 JAR_PATH_FILENAME=$2
-LOGGING_DIR="$HOME/nextstep/logs"
+LOGGING_DIR="$HOME/logs"
 
 txtrst='\033[1;37m' # White
 txtred='\033[1;31m' # Red

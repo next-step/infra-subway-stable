@@ -66,5 +66,8 @@ build_application
 ## 6.Start new process
 "$SHELL_SCRIPT_PATH"/start.sh "$PROFILE" "$APPLICATION_JAR_PATH_FILENAME"
 
+## 7.Restart redis
+"$SHELL_SCRIPT_PATH"/redis.sh
+
 ## 7.Restart reverse proxy
-"$SHELL_SCRIPT_PATH"/reverse_proxy.sh
+#"$SHELL_SCRIPT_PATH"/reverse_proxy.sh

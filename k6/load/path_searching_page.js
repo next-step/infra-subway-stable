@@ -26,7 +26,8 @@ export default function () {
   addFavorite();
 }
 
-const BASE_URL = 'https://orgojy.ga';
+const BASE_URL_FOR_ASG = 'https://www.orgojy.ga';
+// const BASE_URL_FOR_OPTIMIZATION = 'https://orgojy.ga';
 const MY_EMAIL = 'orgojy@gmail.com';
 const MY_PASSWORD = '1234';
 
@@ -37,7 +38,7 @@ function getAllStations() {
     },
   };
 
-  let stationsRes = http.get(`${BASE_URL}/stations`, params);
+  let stationsRes = http.get(`${BASE_URL_FOR_ASG}/stations`, params);
 
   const success = check(stationsRes, {
     'Get Stations ': (res) => res.json().length >= 615,
@@ -52,7 +53,7 @@ function getPath() {
       'Content-Type': 'application/json',
     },
   };
-  const url = new URL(`${BASE_URL}/paths`);
+  const url = new URL(`${BASE_URL_FOR_ASG}/paths`);
   url.searchParams.append('source', 1);
   url.searchParams.append('target', 15);
 
@@ -74,7 +75,7 @@ function addFavorite() {
     target: 15,
   });
 
-  const url = new URL(`${BASE_URL}/favorites`);
+  const url = new URL(`${BASE_URL_FOR_ASG}/favorites`);
   const response = http.post(url.toString(), payload, auth_header);
 
   const success = check(response, {
